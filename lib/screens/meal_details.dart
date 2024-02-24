@@ -28,6 +28,12 @@ class _MealDetailsScreenState extends State<MealDetailsScreen> {
     }
   }
 
+  void _onInternalFavouriteToggle(Meal meal){
+    setState(() {
+      widget.onToggleFavourite(widget.meal);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +42,7 @@ class _MealDetailsScreenState extends State<MealDetailsScreen> {
         actions: [
           IconButton(
             onPressed: () {
-              widget.onToggleFavourite(widget.meal);
+              _onInternalFavouriteToggle(widget.meal);
             },
             icon: _FavouriteIcon(widget.meal),
           )
